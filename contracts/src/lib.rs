@@ -4,6 +4,7 @@ use soroban_sdk::{contract, contractimpl, Address, Env, Symbol};
 mod nft;
 mod marketplace;
 mod metadata;
+mod tests;
 
 use nft::NFTContract;
 use marketplace::MarketplaceContract;
@@ -15,6 +16,10 @@ pub struct StellarNFTMarketplace;
 impl StellarNFTMarketplace {
     /// Initialize the marketplace with admin address
     pub fn initialize(env: Env, admin: Address) {
+        if env.storage().instance().has(&Symbol::new(&env, "admin")) {
+            panic!("Contract already initialized");
+        }
+        
         NFTContract::initialize(env.clone(), admin.clone());
         MarketplaceContract::initialize(env, admin);
     }
