@@ -1,0 +1,20 @@
+{
+  "name": "stellar-nft-marketplace",
+  "version": "1.0.0",
+  "description": "A decentralized NFT marketplace built on the Stellar blockchain using Soroban smart contracts",
+  "private": true,
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm -r --parallel dev",
+    "test": "pnpm -r test",
+    "clean": "pnpm -r clean"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
